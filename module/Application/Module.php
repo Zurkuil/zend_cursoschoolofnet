@@ -41,7 +41,9 @@ class Module
     
     public function onDispatch(MvcEvent $e){
         
+        $sm = $e->getApplication()->getServiceManager();
+        
         $viewModel = $e->getViewModel();
-        $viewModel->setVariable('categories', 'CATEGORY LIST');
+        $viewModel->setVariable('categories', $sm->get('categories'));
     }
 }

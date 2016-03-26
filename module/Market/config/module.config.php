@@ -1,22 +1,30 @@
 <?php
+
 return array(
     'controllers' => array(
         'invokables' => array(
             'market-index-controller' => 'Market\Controller\IndexController',
+            'market-view-controller' => 'Market\Controller\ViewController',
         ),
+        'factories' => array(
+            'market-post-controller' => 'Market\Factory\PostControllerFactory',
+        ),
+        'aliases' => array(
+            'alt' => 'market-view-controller',
+        )
     ),
     'router' => array(
         'routes' => array(
             'market' => array(
-                'type'    => 'Literal',
+                'type' => 'Literal',
                 'options' => array(
                     // Change this to something specific to your module
-                    'route'    => '/market',
+                    'route' => '/market',
                     'defaults' => array(
                         // Change this value to reflect the namespace in which
                         // the controllers for your module are found
-                        'controller'    => 'market-index-controller',
-                        'action'        => 'index',
+                        'controller' => 'market-index-controller',
+                        'action' => 'index',
                     ),
                 ),
                 'may_terminate' => true,
@@ -26,12 +34,12 @@ return array(
                     // you may want to remove it and replace it with more
                     // specific routes.
                     'default' => array(
-                        'type'    => 'Segment',
+                        'type' => 'Segment',
                         'options' => array(
-                            'route'    => '/[:controller[/:action]]',
+                            'route' => '/[:controller[/:action]]',
                             'constraints' => array(
                                 'controller' => '[a-zA-Z][a-zA-Z0-9_-]*',
-                                'action'     => '[a-zA-Z][a-zA-Z0-9_-]*',
+                                'action' => '[a-zA-Z][a-zA-Z0-9_-]*',
                             ),
                             'defaults' => array(
                             ),

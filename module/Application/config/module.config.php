@@ -56,7 +56,7 @@ return array(
     ),
     'service_manager' => array(
         'services' => array(
-            'categories' => array("Barter","beauty", "clothing", "computer", 
+            'application-categories' => array("Barter","beauty", "clothing", "computer", 
                 "entertainment", "free", "Garden", "general", "health", 
                 "household", "phones", "property", "sporting", "tools", 
                 "transportation", "wanted"),

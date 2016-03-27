@@ -106,67 +106,14 @@ return array(
             ),
         ),
     ),
-    /*
-      'market-post' => array(
-      'type' => 'Literal',
-      'options' => array(
-      // Change this to something specific to your module
-      'route' => '/market/post',
-      'defaults' => array(
-      // Change this value to reflect the namespace in which
-      // the controllers for your module are found
-      'controller' => 'market-post-controller',
-      'action' => 'index',
-      ),
-      ),
-      ),
-      'market-view' => array(
-      'type' => 'Literal',
-      'options' => array(
-      // Change this to something specific to your module
-      'route' => '/market/view',
-      'defaults' => array(
-      // Change this value to reflect the namespace in which
-      // the controllers for your module are found
-      'controller' => 'market-view-controller',
-      'action' => 'index',
-      ),
-      ),
-      'may_terminate' => true,
-      'child_routes' => array(
-      'default' => array(
-      'type' => 'Segment',
-      'options' => array(
-      'route' => '/main[/:category]',
-      'defaults' => array(
-      'action' => 'index',
-      ),
-      ),
-      ),
-      'slash' => array(
-      'type' => 'Literal',
-      'options' => array(
-      'route' => '/',
-      'defaults' => array(
-      'controller' => 'market-view-controller',
-      'action' => 'index',
-      ),
-      ),
-      ),
-      'item' => array(
-      'type' => 'Segment',
-      'options' => array(
-      'route' => '/item[/:itemId]',
-      'constraints' => array(
-      'itemId' => '[0-9]*',
-      ),
-      'defaults' => array(
-      'action' => 'item',
-      ),
-      ),
-      ),
-      ),
-      ), */
+    'service_manager' => array(
+        'factories' => array(
+            'general-adapter' => 'Zend\Db\Adapter\AdapterServiceFactory',
+            'listings-table' => 'Market\Factory\ListingsTableFactory',
+            'market-post-form' => 'Market\Factory\PostFormFactory',
+             'market-post-filter' => 'Market\Factory\PostFilterFactory',
+            )
+    ),
     'view_manager' => array(
         'template_path_stack' => array(
             'Market' => __DIR__ . '/../view',

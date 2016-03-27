@@ -44,6 +44,6 @@ class Module
         $sm = $e->getApplication()->getServiceManager();
         
         $viewModel = $e->getViewModel();
-        $viewModel->setVariable( 'categories', $sm->get('categories'));
+        $viewModel->setVariable( 'categories', $sm->get('application-categories'));
     }
 }

@@ -100,6 +100,11 @@ return array(
             __DIR__ . '/../view',
         ),
     ),
+    'view_helpers' => array(
+        'invokables' => array(
+            'LeftLinks' => 'Application\Helper\LeftLinks',
+        )
+    ),    
     // Placeholder for console routes
     'console' => array(
         'router' => array(

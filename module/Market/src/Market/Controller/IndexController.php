@@ -15,7 +15,7 @@ class IndexController extends AbstractActionController
 {
     public function indexAction()
     {
-        return array();
+        return array('messages' => 'Welcome to the Online Market');
     }
 
     public function fooAction()

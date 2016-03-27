@@ -16,14 +16,14 @@ class ViewController extends AbstractActionController
 {
     public function indexAction()
     {
-        $category = $this->params()->fromQuery('category');
+        $category = $this->params()->fromRoute('category');
         
         return new ViewModel(array('category' => $category));
     }
     
     public function itemAction(){
         
-        $category = $this->params()->fromQuery('itemId');
+        $category = $this->params()->fromRoute('itemId');
         
         if(!$category){
             $this->flashMessenger()->addErrorMessage('Item not found !');
@@ -32,4 +32,6 @@ class ViewController extends AbstractActionController
         
         return new ViewModel(array('category' => $category));
     }
+    
+    
 }

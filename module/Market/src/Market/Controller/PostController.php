@@ -25,5 +25,7 @@ class PostController extends AbstractActionController
         
         $this->categories = $categories;
     }
+    
+    
 
 }

@@ -1,2 +1,29 @@
 view action
 <h1><?php echo $this->escapeHtml(ucfirst($this->category)); ?></h1>
+
+<?php if($this->listings instanceof Zend\Db\ResultSet\ResultSet): ;?>
+
+<table class="table table-bordered">
+    <tr>
+        <th>Item</th>
+        <th>Price</th>
+        <th>id</th>
+         <th>Photo</th>
+        <th>Posted</th>
+    </tr>
+    <?php while($item = $this->listings->current()): ?>
+    <tr style="background-color: <?php echo $this->cycle(['#f9a770', '#fac769', '#faae58'])->next(); ?>">
+        <td><?php echo $this->escapehtml($item['title']);  ?></td>
+       <td><?php  echo $this->escapehtml((float)$item['price']); ?></td>
+       <td><a href="/market/view/item/<?php echo (int) $item->listings_id; ?>"><?php echo $this->escapehtml($item['title']); ?></a></td>
+       <td><?php  echo $this->escapehtml($item['photo_filename']); ?></td>
+       <td><?php  echo $this->escapehtml($item['date_created']); ?></td>
+    </tr>
+    <?php $this->listings->next(); endwhile; ?>
+</table>
+
+<?php else: ?>
+
+<?php Zend\Debug\Debug::dump($this->listings);
+
+ endif; ?>

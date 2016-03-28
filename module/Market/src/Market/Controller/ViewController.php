@@ -14,23 +14,29 @@ use Zend\View\Model\ViewModel;
 
 class ViewController extends AbstractActionController
 {
+    use ListingsTableTrait;
+    
     public function indexAction()
     {
         $category = $this->params()->fromRoute('category');
         
-        return new ViewModel(array('category' => $category));
+        $listings = $this->listingsTable->getListingsByCategory($category);
+      
+        return new ViewModel(array('category' => $category, 'listings' => $listings));
     }
     
     public function itemAction(){
         
-        $category = $this->params()->fromRoute('itemId');
+        $itemId = $this->params()->fromRoute('itemId');
+       
+        $item = $this->listingsTable->getListingsById($itemId);
         
-        if(!$category){
+        if(!$itemId){
             $this->flashMessenger()->addErrorMessage('Item not found !');
-            $this->redirect()->toUrl('http://onlinemarket.work/');
+            $this->redirect()->toUrl('market');
         }
         
-        return new ViewModel(array('category' => $category));
+        return new ViewModel(array('item' => $item));
     }
     
     

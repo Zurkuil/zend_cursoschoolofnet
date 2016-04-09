@@ -23,7 +23,7 @@ class PostController extends AbstractActionController
     public function indexAction()
     {
         $data = $this->params()->fromPost();
-        
+     //   
         $viewModel = new ViewModel(array('postForm' => $this->postForm, 'data' => $data));
         $viewModel->setTemplate('market/post/index.phtml');
         
@@ -31,7 +31,8 @@ class PostController extends AbstractActionController
             
            $this->postForm->setData($data);
            if($this->postForm->isValid()){
-               
+                
+               $this->listingsTable->addPosting($this->postForm->getData());
                $this->flashMessenger()->addSuccessMessage('Posting Success !');
                $this->redirect()->toRoute('home');
            } else {

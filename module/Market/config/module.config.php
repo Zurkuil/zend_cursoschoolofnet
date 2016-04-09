@@ -111,7 +111,7 @@ return array(
             'general-adapter' => 'Zend\Db\Adapter\AdapterServiceFactory',
             'listings-table' => 'Market\Factory\ListingsTableFactory',
             'market-post-form' => 'Market\Factory\PostFormFactory',
-             'market-post-filter' => 'Market\Factory\PostFilterFactory',
+             'market-post-filter' => 'Market\Factory\PostFilterFactory'
             )
     ),
     'view_manager' => array(

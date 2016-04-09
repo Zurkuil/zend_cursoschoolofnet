@@ -14,7 +14,7 @@ class PostFilterFactory implements FactoryInterface
 		* O importante é registrar o campos do formulário pedidos no exercícios
 		*/
 		$filter->setCategories($sm->get('application-categories'));
-		$filter->setExpireDays($sm->get('market-expire-days'));
+		$filter->setExpireDays(array(30));
 		$filter->buildFilter();
 		return $filter;
 	}

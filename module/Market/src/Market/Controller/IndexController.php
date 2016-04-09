@@ -17,7 +17,11 @@ class IndexController extends AbstractActionController
     
     public function indexAction()
     {
-        return array('messages' => 'Welcome to the Online Market');
+       
+        
+        $itemRecent = $this->listingsTable->getLastListing();
+        
+         return array('messages' => 'Welcome to the Online Market', 'item' => $itemRecent);
     }
 
     public function fooAction()

@@ -52,7 +52,7 @@ class PostFilter extends InputFilter
 			  ->addByName('GreaterThan', array('min' => 0.00));
 		$price->getFilterChain()
 			  ->attach(new Float());	// custom filter
-
+/*
 		$expires = new Input('expires');
 		$expires->setAllowEmpty(TRUE);
 		$expires->getValidatorChain()
@@ -60,8 +60,8 @@ class PostFilter extends InputFilter
 		$expires->getFilterChain()
 			    ->attachByName('StripTags')
 				->attachByName('StringTrim');
-
-		$city = new Input('city');
+*/
+		$city = new Input('cityCode');
 		$city->setAllowEmpty(TRUE);
 		$city->getFilterChain()
 			 ->attachByName('StripTags')
@@ -110,7 +110,7 @@ class PostFilter extends InputFilter
 			 ->add($title)
 			 ->add($photo)
 			 ->add($price)
-			 ->add($expires)
+			// ->add($expires)
 			 ->add($city)
 			 ->add($name)
 			 ->add($phone)
